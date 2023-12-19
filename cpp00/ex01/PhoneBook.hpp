@@ -25,7 +25,6 @@ class PhoneBook
         PhoneBook() : size(0), index(0) {}
         int     get_size(void) const;
         void	add_contact(std::string data[5]);
-	    void	get_contact(int i) const;
-	    void	get_all_contacts(void) const;
+	void	get_contact(int i) const;
+	void	get_all_contacts(void) const;
 };
-

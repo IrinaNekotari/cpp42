@@ -10,9 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = megaphone
+NAME = YellowPages
 
-SRC = megaphone.cpp
+SRC = Contact.cpp PhoneBook.cpp main.cpp
 OBJ = ${SRC:.cpp=.o}
 
 FLAGS = -Wall -Werror -Wextra -std=c++98
@@ -34,3 +34,4 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
+
