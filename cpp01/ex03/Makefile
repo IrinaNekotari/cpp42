@@ -10,9 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Necromancer2
+NAME = Violence
 
-SRC = Zombie.cpp zombieHorde.cpp main.cpp
+SRC = Weapon.cpp HumanA.cpp HumanB.cpp main.cpp
 OBJ = ${SRC:.cpp=.o}
 
 FLAGS = -Wall -Werror -Wextra -std=c++98
