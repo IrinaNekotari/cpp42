@@ -10,9 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Violence
+NAME = Account
 
-SRC = Sed.cpp main.cpp
+SRC = Acount.cpp tests.cpp
 OBJ = ${SRC:.cpp=.o}
 
 FLAGS = -Wall -Werror -Wextra -std=c++98
