@@ -10,12 +10,12 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = FragTrap
+NAME = DiamondTrap
 
-SRC = ClapTrap.cpp ScavTrap.cpp FragTrap.cpp main.cpp
+SRC = ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp main.cpp
 OBJ = ${SRC:.cpp=.o}
 
-FLAGS = -Wall -Werror -Wextra -std=c++98
+FLAGS = -Wall -Werror -Wextra -std=c++98 -Wshadow -Wno-shadow
 
 all: $(NAME)
 
