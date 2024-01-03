@@ -4,9 +4,9 @@
 
 int main(void)
 {
-    const Animal* a = new Animal();
-    const Animal* d = new Dog();
-    const Animal* c = new Cat();
+    const AAnimal* a = new AAnimal();
+    const AAnimal* d = new Dog();
+    const AAnimal* c = new Cat();
     const WrongAnimal* wa = new WrongAnimal();
     const WrongAnimal* wc = new WrongCat();
 
