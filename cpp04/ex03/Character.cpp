@@ -38,7 +38,7 @@ Character& Character::operator=(const Character& c)
 
 Character::~Character()
 {
-    std::cout << BLUE << BOLD << this->name << END << WHITE << " has been put out of action (RIP)." << std::endl;
+    std::cout << BLUE << BOLD << this->name << END << WHITE << " has been put out of action (RIP)." << END << std::endl;
 }
 
 std::string const & Character::getName(void) const
@@ -48,6 +48,12 @@ std::string const & Character::getName(void) const
 
 void Character::equip(AMateria* m)
 {
+    if (NULL == m)
+    {
+        std::cout << BLUE << BOLD << this->name << END << WHITE << " can't equip a materia if it doesn't exist ! "
+                    << std::endl;
+        return ;
+    }
     for (size_t i = 0; i < 4; i++)
     {
         if (NULL == this->inventory[i])
