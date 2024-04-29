@@ -10,9 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Animals
+NAME = Bureau
 
-SRC = Brain.cpp Animal.cpp Dog.cpp Cat.cpp main.cpp
+SRC = Bureaucrat.cpp AForm.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp main.cpp
 OBJ = ${SRC:.cpp=.o}
 
 FLAGS = -Wall -Werror -Wextra -std=c++98
