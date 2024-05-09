@@ -74,7 +74,6 @@ std::ostream& operator<<(std::ostream& os, const Form& instance) {
 	os << "Form " << instance.getName()
 		<< ", signed : " << instance.getSigned()
 		<< ", sign grade : " << instance.getToSign()
-		<< ", execute grade : " << instance.getToExec()
-		<< std::endl;
+		<< ", execute grade : " << instance.getToExec();
 	return (os);
 }

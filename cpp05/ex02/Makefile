@@ -26,7 +26,7 @@ $(NAME): $(OBJ)
 	c++ $(OBJ) $(FLAGS) -o $(NAME)
 	
 clean:
-	@rm  $(OBJ)
+	@rm  $(OBJ) *_shrubbery
 
 fclean: clean
 	@rm $(NAME)

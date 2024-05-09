@@ -13,53 +13,47 @@
 # include "PresidentialPardonForm.hpp"
 # include "ShrubberyCreationForm.hpp"
 # include "RobotomyRequestForm.hpp"
+# include "Intern.hpp"
 
 int main(void)
 {
-    Bureaucrat *a = new Bureaucrat("Ada", 30);
-    Bureaucrat *l = new Bureaucrat("Barry Burton", 130);
-    Bureaucrat *w = new Bureaucrat("Wesker", 1);
-    std::cout << *a << std::endl;
-    std::cout << *l << std::endl;
-    std::cout << *w << std::endl;
-    AForm *f1 = new RobotomyRequestForm("Ethan");
-    AForm *f2 = new PresidentialPardonForm("Leon");
-    AForm *f3 = new ShrubberyCreationForm("Raccoon City");
-    std::cout << *f1 << std::endl;
-    std::cout << *f2 << std::endl;
-    std::cout << *f3 << std::endl;
-
+    Bureaucrat *w = new Bureaucrat("Albert Wesker", 1);
+    Intern *i     = new Intern();
+    AForm *f;
     try
     {
-        f1->beSigned(*l);
+        f = i->makeForm("robotomy request", "Ethan Winters");
+        f->beSigned(*w);
+        w->executeForm(*f);
+        delete (f);
     }
     catch(const std::exception& e) {}
     try
     {
-        f1->beSigned(*a);
-        f3->beSigned(*a);
-        f2->beSigned(*a);
+        f = i->makeForm("shrubbery creation", "Arklay Forest");
+        f->beSigned(*w);
+        w->executeForm(*f);
+        delete (f);
     }
     catch(const std::exception& e) {}
     try
     {
-        f3->execute(*l);
-        l->executeForm(*f3);
-        f2->execute(*l);
-        l->executeForm(*f2);
+        f = i->makeForm("presidential pardon", "Leon S. Kennedy");
+        f->beSigned(*w);
+        w->executeForm(*f);
+        delete (f);
     }
     catch(const std::exception& e) {}
-    f2->beSigned(*w);
-    w->executeForm(*f1);
-    f2->execute(*w);
-    f3->execute(*w);
+    try
+    {
+        f = i->makeForm("ultima request", "Ethan Winters");
+        f->beSigned(*w);
+        w->executeForm(*f);
+        delete (f);
+    }
+    catch(const std::exception& e) {}
     
-    delete (f1);
-    delete (f2);
-    delete (f3);
-
-    delete (a);
-    delete (l);
     delete (w);
+    delete (i);
     return 0;
 }

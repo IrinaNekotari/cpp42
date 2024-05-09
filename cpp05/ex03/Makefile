@@ -10,9 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Animals
+NAME = Bureau
 
-SRC = Brain.cpp Animal.cpp Dog.cpp Cat.cpp main.cpp
+SRC = Bureaucrat.cpp AForm.cpp Intern.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp main.cpp
 OBJ = ${SRC:.cpp=.o}
 
 FLAGS = -Wall -Werror -Wextra -std=c++98
@@ -26,7 +26,7 @@ $(NAME): $(OBJ)
 	c++ $(OBJ) $(FLAGS) -o $(NAME)
 	
 clean:
-	@rm  $(OBJ)
+	@rm  $(OBJ) *_shrubbery
 
 fclean: clean
 	@rm $(NAME)
