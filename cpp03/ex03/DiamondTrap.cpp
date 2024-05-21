@@ -12,6 +12,21 @@ DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name), ScavTrap(name), Fra
                 << std::endl;
 }
 
+DiamondTrap::DiamondTrap(const DiamondTrap& d) : ClapTrap(name), ScavTrap(name), FragTrap(name)
+{
+    (*this) = d;
+}
+
+DiamondTrap& DiamondTrap::operator=(const DiamondTrap& d)
+{
+    this->ap = d.ap;
+    this->ep = d.ep;
+    this->hp = d.hp;
+    this->name = d.name;
+    return (*this);
+}
+
+
 DiamondTrap::~DiamondTrap()
 {
     std::cout << WHITE << "The Ultimate Mega Super " << BLUE << BOLD

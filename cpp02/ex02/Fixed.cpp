@@ -32,7 +32,7 @@ Fixed::~Fixed()
 
 int Fixed::getRawBits(void) const 
 {
-    return this->value;
+    return (this->value);
 }
 
 void    Fixed::setRawBits(int const raw) 
@@ -53,7 +53,7 @@ float   Fixed::toFloat(void) const
 std::ostream & operator<<(std::ostream &o, Fixed const &i) 
 {
     o << i.toFloat();
-    return o;
+    return (o);
 }
 
 /**
@@ -117,7 +117,7 @@ Fixed Fixed::operator/(const Fixed &f)
 {
     if (f.toFloat() == 0)
     {
-        std::cout << "ERROR : Divided by  !" << std::endl;
+        std::cout << "ERROR : Divided by 0 !" << std::endl;
         return (Fixed(this->toFloat()));
     }
     return (Fixed(this->toFloat() / f.toFloat()));
@@ -148,27 +148,27 @@ Fixed Fixed::operator--(int) {
 Fixed& Fixed::min( Fixed &a, Fixed &b ) 
 {
     if ( a.getRawBits() < b.getRawBits() )
-        return a;
-    return b;
+        return (a);
+    return (b);
 }
 
 const Fixed& Fixed::min(const Fixed &a, const Fixed &b) 
 {
     if ( a.getRawBits() < b.getRawBits() )
-        return a;
-    return b;
+        return (a);
+    return (b);
 }
 
 Fixed& Fixed::max(Fixed &a, Fixed &b) 
 {
     if ( a.getRawBits() > b.getRawBits() )
-        return a;
-    return b;
+        return (a);
+    return (b);
 }
 
 const Fixed& Fixed::max( const Fixed &a, const Fixed &b ) 
 {
     if ( a.getRawBits() > b.getRawBits() )
-        return a;
-    return b;
+        return (a);
+    return (b);
 }

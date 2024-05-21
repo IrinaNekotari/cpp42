@@ -17,6 +17,20 @@ ScavTrap::~ScavTrap()
                 << std::endl;
 }
 
+ScavTrap::ScavTrap(const ScavTrap& s) : ClapTrap(s.name)
+{
+    (*this) = s;
+}
+
+ScavTrap& ScavTrap::operator=(const ScavTrap& s)
+{
+    this->ap = s.ap;
+    this->ep = s.ep;
+    this->hp = s.hp;
+    this->name = s.name;
+    return (*this);
+}
+
 void    ScavTrap::attack(const std::string& target)
 {
     if (this->hp > 0 && this->ep > 0)

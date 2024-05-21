@@ -38,7 +38,9 @@ int main(int args, char *argv[])
         while (argv[i])
         {
             upper(&argv[i]);
-            std::cout << argv[i] << " ";
+            std::cout << argv[i];
+            if (i + 1 < args)
+                std::cout << " ";
             i++;
         }
         std::cout << std::endl;
