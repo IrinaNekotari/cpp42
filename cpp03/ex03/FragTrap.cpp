@@ -17,6 +17,21 @@ FragTrap::~FragTrap()
                 << std::endl;
 }
 
+FragTrap::FragTrap(const FragTrap& f) : ClapTrap(f.name)
+{
+    (*this) = f;
+}
+
+FragTrap& FragTrap::operator=(const FragTrap& f)
+{
+    this->ap = f.ap;
+    this->ep = f.ep;
+    this->hp = f.hp;
+    this->name = f.name;
+    return (*this);
+}
+
+
 void    FragTrap::highFivesGuys(void)
 {
     if (this->hp > 0 && this->ep > 0)

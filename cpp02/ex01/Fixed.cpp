@@ -49,7 +49,7 @@ Fixed& Fixed::operator=(const Fixed& f)
 
 int Fixed::getRawBits(void) const 
 {
-    return this->value;
+    return (this->value);
 }
 
 void    Fixed::setRawBits(int const raw) 

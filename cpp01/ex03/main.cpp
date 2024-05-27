@@ -4,11 +4,13 @@
 int main(void)
 {
     Weapon hamon = Weapon("sun rays power");
-    HumanA jojo("Johnattan", hamon);
+    HumanA jojo("Johnathan", hamon);
+    jojo.attack();
+    hamon.setType("G U N");
     jojo.attack();
     hamon.setType("stone mask");
-    jojo.attack();
     HumanB dio("DIO");
+    dio.attack();
     dio.setWeapon(hamon);
     dio.attack();
     hamon.setType("the WORLD");
