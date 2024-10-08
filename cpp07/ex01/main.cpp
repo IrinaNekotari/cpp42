@@ -12,9 +12,14 @@
 
 #include "iter.hpp"
 
-template<typename T>void elprinto(const T& t)
+template<typename T>void elprinto(T& t)
 {
 	std::cout << t << std::endl;
+}
+
+template<typename T>void elincremento(T& t)
+{
+	++t;
 }
 
 int main(void)
@@ -22,6 +27,10 @@ int main(void)
 	std::string array[] = {"Lorem", "Ipsum", "Dolorem", "Sit", "COUCOU", "Amet"};
 	int	tablo[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 	iter(array, array->length() + 1, &elprinto);
+	std::cout << "##############" << std::endl;
+	iter(tablo, 11, &elprinto);
+	std::cout << "##############" << std::endl;
+	iter(tablo, 11, &elincremento);
 	iter(tablo, 11, &elprinto);
 	return (0);
 }
