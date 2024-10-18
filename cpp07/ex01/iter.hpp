@@ -18,3 +18,9 @@ template<typename T> void iter(T* t, int len, void (*f)(T&))
 	for (int i = 0; i < len; i++)
 		f(t[i]);
 }
+
+template<typename T> void iter(T* t, int len, void (*f)(const T&))
+{
+	for (int i = 0; i < len; i++)
+		f(t[i]);
+}
