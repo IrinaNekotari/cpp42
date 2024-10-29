@@ -10,9 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ez
+NAME = PMergeMe
 
-SRC = main.cpp
+SRC = PMergeMe.cpp main.cpp
 OBJ = ${SRC:.cpp=.o}
 
 FLAGS = -Wall -Werror -Wextra -std=c++98
