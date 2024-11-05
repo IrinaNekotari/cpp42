@@ -34,6 +34,9 @@ public:
     PMergeMe(const PMergeMe & p);
     PMergeMe & operator=(const PMergeMe & p);
 
+    bool    check_duplicate();
+    bool    is_sorted();
+
     void    init_vector(char **args);
     void    sort_vector();
 

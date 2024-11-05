@@ -164,12 +164,12 @@ static bool check_value(std::string value)
 			return (false);
 		}
 	}
-	if (std::atoi(value.c_str()) < 0)
+	if (std::atol(value.c_str()) < 0)
     {
 		std::cout << "Error: not a positive number";
 		return (false);
 	}
-    if (std::atoi(value.c_str()) > 1000)
+    if (std::atol(value.c_str()) > 1000)
     {
 		std::cout << "Error: too large a number";
 		return (false);

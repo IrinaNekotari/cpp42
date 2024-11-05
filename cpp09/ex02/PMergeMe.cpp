@@ -28,6 +28,46 @@ PMergeMe & PMergeMe::operator=(const PMergeMe & p)
     return (*this);
 }
 
+bool    PMergeMe::check_duplicate()
+{
+    for (size_t i = 0; i < deq.size(); i++)
+    {
+        for (size_t j = 0; j < deq.size(); j++)
+        {
+            if (i != j && deq[i] == deq[j])
+                return (true);
+        }
+    }
+    for (size_t i = 0; i < vec.size(); i++)
+    {
+        for (size_t j = 0; j < vec.size(); j++)
+        {
+            if (i != j && vec[i] == vec[j])
+                return (true);
+        }
+    }
+    return (false);
+}
+
+bool    PMergeMe::is_sorted()
+{
+    for (size_t i = 0; i < deq.size(); i++)
+    {
+        if (i + 1 > deq.size())
+            break ;
+        if (deq[i] > deq[i + 1])
+            return (false);
+    }
+    for (size_t i = 0; i < vec.size(); i++)
+    {
+        if (i + 1 > vec.size())
+            break ;
+        if (vec[i] > vec[i + 1])
+            return (false);
+    }
+    return (true);
+}
+
 void    PMergeMe::init_vector(char **argv)
 {
     for (int i = 1; argv[i]; i++)
@@ -81,16 +121,18 @@ void    PMergeMe::sort_deque()
     std::deque<t_tuple> pair;
     std::deque<t_tuple> sorted;
     std::deque<int>     sorted_final;
+    bool    has_tail = false;
     int right = 0;
     int index = 0;
-    int last = 0;
+    int tail = 0;
 
     //Separe en pairs
     for (std::deque<int>::iterator it = deq.begin(); it != deq.end() ; it += 2)
     {
         if (it + 1 == deq.end())
         {
-            last = *it;
+            tail = *it;
+            has_tail = true;
             break ;
         }
         t_tuple tuple;
@@ -136,11 +178,11 @@ void    PMergeMe::sort_deque()
         index = binary_deque(sorted_final, right, it->b);
         sorted_final.insert(sorted_final.begin() + index, it->b);
     }
-    if (last)
+    if (has_tail)
     {
         right = sorted_final.size() - 1;
-        index = binary_deque(sorted_final, right, last);
-        sorted_final.insert(sorted_final.begin() + index, last);
+        index = binary_deque(sorted_final, right, tail);
+        sorted_final.insert(sorted_final.begin() + index, tail);
     }
     deq = sorted_final;
 }
@@ -150,16 +192,18 @@ void    PMergeMe::sort_vector()
     std::vector<t_tuple> pair;
     std::vector<t_tuple> sorted;
     std::vector<int>     sorted_final;
+    bool    has_tail = false;
     int right = 0;
     int index = 0;
-    int last = 0;
+    int tail = 0;
 
     //Separe en pairs
     for (std::vector<int>::iterator it = vec.begin(); it != vec.end() ; it += 2)
     {
         if (it + 1 == vec.end())
         {
-            last = *it;
+            tail = *it;
+            has_tail = true;
             break ;
         }
         t_tuple tuple;
@@ -205,11 +249,11 @@ void    PMergeMe::sort_vector()
         index = binary_vector(sorted_final, right, it->b);
         sorted_final.insert(sorted_final.begin() + index, it->b);
     }
-    if (last)
+    if (has_tail)
     {
         right = sorted_final.size() - 1;
-        index = binary_vector(sorted_final, right, last);
-        sorted_final.insert(sorted_final.begin() + index, last);
+        index = binary_vector(sorted_final, right, tail);
+        sorted_final.insert(sorted_final.begin() + index, tail);
     }
     vec = sorted_final;
 }
@@ -238,6 +282,6 @@ void    PMergeMe::print_all()
     start = clock();
     sort_vector();
     time_vec = double(clock() - start) / CLOCKS_PER_SEC;
-    std::cout << "# Time to sort " << deq.size() << " values in a deque : " << time_deq << "ms" << std::endl;
-    std::cout << "# Time to sort " << deq.size() << " values in a vector : " << time_vec << "ms" << std::endl;
+    std::cout << "# Time to sort " << deq.size() << " values in a deque : " << time_deq * 1000 << "ms" << std::endl;
+    std::cout << "# Time to sort " << deq.size() << " values in a vector : " << time_vec * 1000 << "ms" << std::endl;
 }
